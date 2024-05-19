@@ -1,0 +1,38 @@
+﻿<Window x:Name="AuthWindow" x:Class="CinemaTicketSeller.AuthenticationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CinemaTicketSeller"
+        mc:Ignorable="d"
+        Title="AuthenticationWindow" Height="500" Width="400" WindowStartupLocation="CenterScreen" Background="#FF595959" Icon="/img/logo.png" ResizeMode="NoResize">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="2.5*"/>
+            <RowDefinition Height="2.7*"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="0">
+            <Image HorizontalAlignment="Center" Height="100" Source="img/logo.png"/>
+        </DockPanel>
+        <DockPanel x:Name="Info" Grid.Row="1" >
+            <Label x:Name="Welcome" Grid.Row="1" Content="Добро пожаловать!" DockPanel.Dock="Top" HorizontalAlignment="Center" Foreground="White" FontSize="16" FontWeight="Bold"/>
+            <Label x:Name="Rule" Grid.Row="1" Content="Введите логин и пароль" HorizontalAlignment="Center" Foreground="White"/>
+        </DockPanel>
+        <UniformGrid x:Name="Fields" Grid.Row="2" Rows="2">
+            <TextBox x:Name="Login" Text="Введите Логин" Height="34" VerticalContentAlignment="Center" Background="#FF595959" Foreground="White" Width="250" BorderThickness="2" BorderBrush="#FFABADB3"/>
+            <PasswordBox x:Name="Password" Password="        "  Height="34" VerticalContentAlignment="Center" Background="#FF595959" Foreground="White" Width="250" BorderThickness="2"/>
+        </UniformGrid>
+        <DockPanel x:Name="Submition" Grid.Row="3">
+
+            <Border x:Name="Submit" DockPanel.Dock="Top" Height="45" Width="250" Margin="0, 30, 0, 0" Background="#FF54B0F0" CornerRadius="10">
+                <Label x:Name="Enter" Content="Войти" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" FontWeight="Bold"/>
+            </Border>
+            <Label x:Name="ErrorMsg" Content="" DockPanel.Dock="Top" Height="28" Width="250" Foreground="White" HorizontalContentAlignment="Center"/>
+        </DockPanel>
+
+    </Grid>
+
+</Window>
