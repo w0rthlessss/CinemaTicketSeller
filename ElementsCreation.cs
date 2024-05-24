@@ -36,7 +36,7 @@ namespace CinemaTicketSeller
                 DockPanel.SetDock(hall, Dock.Right);
 
                 Label time = new Label();
-                time.Content = $"{databaseScreenings[i].Time}";
+                time.Content = $"{databaseScreenings[i].Time.ToString("HH:mm:ss")}";
                 time.FontSize = 14;
                 time.Foreground = Brushes.White;
 

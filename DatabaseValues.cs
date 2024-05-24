@@ -213,7 +213,7 @@ namespace CinemaTicketSeller
         /*
          * 1 зал 14х12
          * 2 зал 12х12
-         * 3 зал 12х10
+         * 3 зал 12х12
          */
         int hallID;
         int hallNumber;

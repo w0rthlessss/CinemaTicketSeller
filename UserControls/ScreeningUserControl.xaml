@@ -11,7 +11,29 @@
             <TabControl x:Name="Tabs" FontSize="20" VerticalAlignment="Top" Background="#ffdadada"  >
                 <TabItem x:Name="List" Header="Список"  Cursor="Hand" Background="#FFDFDFDF" BorderBrush="#FF9D9D9D">
                     <TabItem.Content>
-                        <DataGrid x:Name ="Table" VerticalAlignment="Stretch" IsReadOnly="True"/>
+                        <DataGrid x:Name ="Table" VerticalAlignment="Stretch" IsReadOnly="True" AutoGenerateColumns="False">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="ScreeningID" Binding="{Binding ScreenID}"/>
+                                <DataGridTextColumn Header="Date" Binding="{Binding Date, StringFormat='dd-MM-yyyy'}"/>
+                                <DataGridTextColumn Header="Time" Binding="{Binding Time, StringFormat='HH:mm:ss'}"/>
+                                <DataGridTextColumn Header="Hall" Binding="{Binding Hall.HallID}"/>
+                                <DataGridTextColumn Header="Movie" Binding="{Binding Movie.Title}"/>
+                                <DataGridTemplateColumn Header="OccupiedSeats">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <ItemsControl ItemsSource ="{Binding OccupiedSeats}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock Text="{Binding SeatID, StringFormat='id: {0}'}"/>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Header="PriceAmplification" Binding="{Binding PriceAmplification}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
                     </TabItem.Content>
                 </TabItem>
                 <TabItem x:Name="Add" Header="Добавить" Cursor="Hand" Background="#FFDFDFDF" BorderBrush="#FF9D9D9D">
@@ -41,9 +63,15 @@
                                 <Label Content="Множитель цены" DockPanel.Dock="Left"/>
                                 <TextBox x:Name="priceAmplification" VerticalAlignment="Center" Margin="15,0,0,0" HorizontalAlignment="Center" Width="80"/>
                             </DockPanel>
-                            <Border x:Name="addCashier" Background="#FF45FF34" Width="150" Height="50" DockPanel.Dock="Right" Margin="0,50,50,0" HorizontalAlignment="Right">
-                                <Label Content="Добавить" Foreground="White" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                            </Border>
+                            <DockPanel>
+                                <Border x:Name="addScreening" Background="#FF45FF34" Width="150" Height="50" DockPanel.Dock="Right" Margin="0,50,50,0" HorizontalAlignment="Right">
+                                    <Label Content="Добавить" Foreground="White" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+                                <Border x:Name="Random" Background="#FF0074DA" Height="50" Width="150" DockPanel.Dock="Right" Margin="0,50,50,0" HorizontalAlignment="Right">
+                                    <Label Content="Случайно" Foreground="White" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+                            </DockPanel>
+                            
                         </DockPanel>
                     </TabItem.Content>
                 </TabItem>
@@ -82,7 +110,7 @@
                                 <Border x:Name="ApplyChanges" Background="#FF45FF34" Width="150" Height="50" DockPanel.Dock="Right" Margin="0,50,50,0" HorizontalAlignment="Right">
                                     <Label Content="Применить" Foreground="White" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                                 </Border>
-                                <Border x:Name="DeleteSeat" Background="#FFFF3434" Width="150" Height="50" DockPanel.Dock="Right" Margin="0,50,30,0" HorizontalAlignment="Right">
+                                <Border x:Name="DeleteScreening" Background="#FFFF3434" Width="150" Height="50" DockPanel.Dock="Right" Margin="0,50,30,0" HorizontalAlignment="Right">
                                     <Label Content="Удалить" Foreground="White" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                                 </Border>
                             </DockPanel>

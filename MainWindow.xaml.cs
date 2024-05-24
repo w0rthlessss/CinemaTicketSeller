@@ -241,7 +241,7 @@ namespace CinemaTicketSeller
             currentScreening.Hall.Seats = databaseSeats;
             ElementsCreation.CreateSeatButtons(databaseSeats, ref seatButtons);
 
-            this.SeatGrid.Rows = currentScreening.Hall.Seats.Last().RowNumber + 1;
+            this.SeatGrid.Rows = currentScreening.Hall.Seats.OrderByDescending(h => h.RowNumber).First().RowNumber + 1;
             this.SeatGrid.Columns = currentScreening.Hall.Capacity / this.SeatGrid.Rows;
 
             for(int i = 0; i < SeatGrid.Rows; i++)

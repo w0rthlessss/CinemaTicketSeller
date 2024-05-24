@@ -11,9 +11,16 @@
             <TabControl x:Name="Tabs" FontSize="20" VerticalAlignment="Top" Background="#ffdadada"  >
                 <TabItem x:Name="List" Header="Список"  Cursor="Hand" Background="#FFDFDFDF" BorderBrush="#FF9D9D9D">
                     <TabItem.Content>
-                        <DataGrid x:Name ="Table" VerticalAlignment="Stretch" IsReadOnly="True"/>
+                        <DataGrid x:Name ="Table" VerticalAlignment="Stretch" IsReadOnly="True" AutoGenerateColumns="False">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="HallID" Binding="{Binding HallID}"/>
+                                <DataGridTextColumn Header="HallNumber" Binding="{Binding HallNumber}"/>
+                                <DataGridTextColumn Header="Capacity" Binding="{Binding Capacity}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
                     </TabItem.Content>
                 </TabItem>
+                <!--
                 <TabItem x:Name="Add" Header="Добавить" Cursor="Hand" Background="#FFDFDFDF" BorderBrush="#FF9D9D9D">
                     <TabItem.Content>
                         <DockPanel>
@@ -30,7 +37,7 @@
                                 <TextBox x:Name="capacityTextBox" Text="" Width="100" Margin="15,0,0,0"/>
                             </DockPanel>
                             
-                            <Border x:Name="addSeat" Background="#FF45FF34" Width="150" Height="50" DockPanel.Dock="Right" Margin="0,50,50,0" HorizontalAlignment="Right">
+                            <Border x:Name="addHall" Background="#FF45FF34" Width="150" Height="50" DockPanel.Dock="Right" Margin="0,50,50,0" HorizontalAlignment="Right">
                                 <Label Content="Добавить" Foreground="White" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                             </Border>
                         </DockPanel>
@@ -41,7 +48,7 @@
                         <DockPanel>
                             <DockPanel HorizontalAlignment="Left" DockPanel.Dock="Top">
                                 <Label x:Name="idLabelEdit" Content="id" DockPanel.Dock="Left"/>
-                                <TextBox x:Name="idTextBoxEdit" Width="60" Text="" Margin="15,0,0,0" IsReadOnly="True"/>
+                                <TextBox x:Name="idTextBoxEdit" Width="60" Text="" Margin="15,0,0,0"/>
                             </DockPanel>
                             <DockPanel HorizontalAlignment="Left" Margin="0,15,0,0" DockPanel.Dock="Top">
                                 <Label Content="Номер зала" DockPanel.Dock="Left"/>
@@ -55,7 +62,7 @@
                                 <Border x:Name="ApplyChanges" Background="#FF45FF34" Width="150" Height="50" DockPanel.Dock="Right" Margin="0,50,50,0" HorizontalAlignment="Right">
                                     <Label Content="Применить" Foreground="White" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                                 </Border>
-                                <Border x:Name="DeleteSeat" Background="#FFFF3434" Width="150" Height="50" DockPanel.Dock="Right" Margin="0,50,30,0" HorizontalAlignment="Right">
+                                <Border x:Name="DeleteHall" Background="#FFFF3434" Width="150" Height="50" DockPanel.Dock="Right" Margin="0,50,30,0" HorizontalAlignment="Right">
                                     <Label Content="Удалить" Foreground="White" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                                 </Border>
                             </DockPanel>
@@ -63,6 +70,7 @@
                         </DockPanel>
                     </TabItem.Content>
                 </TabItem>
+                -->
             </TabControl>
         </Border>
     </Grid>

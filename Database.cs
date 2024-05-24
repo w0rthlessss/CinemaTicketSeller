@@ -219,66 +219,6 @@ namespace CinemaTicketSeller
             return currentDateScreenings;
         }
 
-        
-
-        /*internal async void FillScreeningsInDatabase()
-        {
-            Random rand = new Random();
-            int index = 0;
-            Movie[] movies = new Movie[7];
-            
-
-            string queue = "SELECT * FROM MOVIES";
-            using(MySqlCommand command = new MySqlCommand(queue, connection))
-            {
-                using(var reader = await command.ExecuteReaderAsync())
-                {
-                    while(await reader.ReadAsync()){
-                        movies[index] = new Movie(
-                            reader.GetInt32(0),
-                            reader.GetString(1),
-                            reader.GetString(2),
-                            reader.GetInt32(3));
-                        index++;
-                    }
-                }
-            }
-            index = 14;
-            for (int i = 2; i < 4; i++)
-            {
-                
-                DateTime start = DateTime.Today.AddHours(9).AddDays(i);
-                while (start < DateTime.Today.AddDays(i+1))
-                {
-                    Movie curMovie = movies[rand.Next(0, 7)];  
-
-                    queue = "insert into screenings " +
-                        "(ScreeningID, MovieID, HallID, Date, Time, PriceAmplification)" +
-                        "values (@ScreeningID, @MovieID, @HallID, @Date, @Time, @PriceAmpl)";
-                    using(MySqlCommand command = new MySqlCommand(queue, connection))
-                    {
-                        command.Parameters.AddWithValue("@ScreeningID", index);
-                        command.Parameters.AddWithValue("@MovieID", curMovie.MovieID);
-                        command.Parameters.AddWithValue("@HallID", rand.Next(1, 4));
-                        command.Parameters.AddWithValue("@Date", start.Date);
-                        command.Parameters.AddWithValue("@Time", start.TimeOfDay);
-                        command.Parameters.AddWithValue("@PriceAmpl", 1);
-
-                        await command.ExecuteNonQueryAsync();
-                    }
-
-                    index++;
-                    start = Round(start.AddMinutes(curMovie.Duration));
-                }
-            }
-            
-        }*/
-
-        /*private DateTime Round(DateTime time)
-        {
-            return time.AddHours(1).Date.AddHours(time.Hour + 1);
-        }*/
-
         internal int GetLastRecordIdFromSpecificTable(string columnName, string tableName)
         {
             string query =  $"select max({columnName}) from {tableName}";
@@ -668,7 +608,7 @@ namespace CinemaTicketSeller
         {
             try
             {
-                string query = "update halls " +
+                string query = "update hall " +
                 "set HallID = @newId,  HallNumber = @newNumber, Capacity = @newCapacity " +
                 "where HallID = @id";
                 for (int i = 0; i < updatedValues.Count; i++)
@@ -954,7 +894,11 @@ namespace CinemaTicketSeller
                         command.Parameters.AddWithValue("@date", newValues[i].Date.ToString("yyyy-MM-dd"));
                         command.Parameters.AddWithValue("@time", newValues[i].Time.ToString("HH:mm:ss"));
                         command.Parameters.AddWithValue("@priceAmpl", newValues[i].PriceAmplification);
-                        command.Parameters.AddWithValue("@occupiedSeats", JsonConvert.SerializeObject(newValues[i].OccupiedSeats));
+                        if (newValues[i].OccupiedSeats.Count != 0 )
+                            command.Parameters.AddWithValue("@occupiedSeats", JsonConvert.SerializeObject(newValues[i].OccupiedSeats));
+                        else
+                            command.Parameters.AddWithValue("@occupiedSeats", null);
+
 
                         command.ExecuteNonQuery();
                     }
@@ -1078,6 +1022,17 @@ namespace CinemaTicketSeller
                 return;
             }
 
+        }
+
+        internal void DeleteSpecificDateScreenings(DateTime date)
+        {
+            string query = "delete from screenings where Date = @date";
+            using(MySqlCommand command = new MySqlCommand( query, connection))
+            {
+                command.Parameters.AddWithValue("@date", date.ToString("yyyy-MM-dd"));
+
+                command.ExecuteNonQuery();
+            }
         }
         #endregion
     }

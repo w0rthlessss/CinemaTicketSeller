@@ -25,9 +25,6 @@ namespace CinemaTicketSeller
         AdminConnection connection;
 
         ObservableCollection<Cashier> databaseCashiers = new ObservableCollection<Cashier>();
-        //List<Cashier> newCashiers = new List<Cashier>();
-        List<Cashier> updatedCashiers = new List<Cashier>();
-        List<int> updatedIDs = new List<int>();
         Cashier currentUser;
         bool containsThisID = false;
 
@@ -261,15 +258,20 @@ namespace CinemaTicketSeller
                 this.passwordTextBoxEdit.Text,
                 this.isAdminCheckBoxEdit.IsChecked ?? false))
             {
-                MessageBox.Show("Изменений не было. Данные не будут обновление", "Внимание", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Изменений не было. Данные не будут обновлены", "Внимание", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
             RemoveSelectionEdit();
             Cashier upd = new Cashier(id, name, surname, login, password, isAdmin);
             connection.UpdateCashiersRecords([upd], [id]);
+            c = upd;
 
-            for(int i =0; i < databaseCashiers.Count; i++)
-                if (databaseCashiers[i].CashierID == id) databaseCashiers[i] = upd;
+            for (int i = 0; i < databaseCashiers.Count; i++)
+                if (databaseCashiers[i].CashierID == id)
+                {
+                    databaseCashiers[i] = upd;
+                    break;
+                }
 
             UpdateTable();
             MessageBox.Show("Запись изменена!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -309,7 +311,7 @@ namespace CinemaTicketSeller
 
         #endregion
 
-        #region FieldFormatting               
+        #region AdminAccessWarnings               
 
         bool isUserChange = true;
 

@@ -11,49 +11,32 @@
             <TabControl x:Name="Tabs" FontSize="20" VerticalAlignment="Top" Background="#ffdadada"  >
                 <TabItem x:Name="List" Header="Список"  Cursor="Hand" Background="#FFDFDFDF" BorderBrush="#FF9D9D9D">
                     <TabItem.Content>
-                        <DataGrid x:Name ="Table" VerticalAlignment="Stretch" IsReadOnly="True"/>
+                        <DataGrid x:Name ="Table" VerticalAlignment="Stretch" IsReadOnly="True" AutoGenerateColumns="False">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="ReciptID" Binding="{Binding ReciptID}"/>
+                                <DataGridTextColumn Header="CashierID" Binding="{Binding CashierID}"/>
+                                <DataGridTextColumn Header="Date" Binding="{Binding Date, StringFormat='dd-MM-yyyy'}"/>
+                                <DataGridTextColumn Header="Time" Binding="{Binding Time, StringFormat='HH:mm:ss'}"/>
+                                <DataGridTemplateColumn Header="Tickets">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <ItemsControl ItemsSource="{Binding Tickets}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock Text="{Binding TicketID, StringFormat='id: {0}'}"/>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Header="TotalSum" Binding="{Binding Sum, StringFormat='{}{0} р.'}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
                     </TabItem.Content>
                 </TabItem>
                 
-                <TabItem x:Name="Edit" Header="Редактировать" Cursor="Hand" Background="#FFDFDFDF" BorderBrush="#FF9D9D9D">
-                    <TabItem.Content>
-                        <DockPanel>
-                            <DockPanel HorizontalAlignment="Left" DockPanel.Dock="Top">
-                                <Label  Content="id" DockPanel.Dock="Left"/>
-                                <TextBox x:Name="idTextBoxEdit" Width="60" Text="" Margin="15,0,0,0"/>
-                            </DockPanel>
-                            <DockPanel HorizontalAlignment="Left" Margin="0,15,0,0" DockPanel.Dock="Top">
-                                <Label Content="Кассир" DockPanel.Dock="Left"/>
-                                <ComboBox x:Name="cashierIDComboBoxEdit" Text="" Width="100" Margin="15,0,0,0"/>
-                            </DockPanel>
-                            <DockPanel HorizontalAlignment="Left" Margin="0,15,0,0" DockPanel.Dock="Top">
-                                <Label Content="Дата" DockPanel.Dock="Left"/>
-                                <DatePicker x:Name="datePickerEdit" Text="" Width="200" Margin="15,0,0,0"/>
-                            </DockPanel>
-                            <DockPanel HorizontalAlignment="Left" Margin="0,15,0,0" DockPanel.Dock="Top">
-                                <Label Content="Время" DockPanel.Dock="Left"/>
-                                <TextBox x:Name="timeTextBoxEdit" Text="" Width="200" Margin="15,0,0,0"/>
-                            </DockPanel>
-                            <DockPanel HorizontalAlignment="Left" Margin="0,15,0,0" DockPanel.Dock="Top">
-                                <Label Content="Билеты" DockPanel.Dock="Left"/>
-                                <TextBlock x:Name="passwordTextBoxEdit" Text="" Width="200" Margin="15,0,0,0"/>
-                            </DockPanel>
-                            <DockPanel HorizontalAlignment="Left" Margin="0,15,0,0" DockPanel.Dock="Top">
-                                <Label Content="Сумма" DockPanel.Dock="Left"/>
-                                <TextBox x:Name="sumTextBoxEdit" VerticalAlignment="Center" Margin="15,0,0,0" HorizontalAlignment="Center" Width="100"/>
-                            </DockPanel>
-                            <DockPanel HorizontalAlignment="Right">
-                                <Border x:Name="ApplyChanges" Background="#FF45FF34" Width="150" Height="50" DockPanel.Dock="Right" Margin="0,50,50,0" HorizontalAlignment="Right">
-                                    <Label Content="Применить" Foreground="White" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                                </Border>
-                                <Border x:Name="DeleteSeat" Background="#FFFF3434" Width="150" Height="50" DockPanel.Dock="Right" Margin="0,50,30,0" HorizontalAlignment="Right">
-                                    <Label Content="Удалить" Foreground="White" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                                </Border>
-                            </DockPanel>
-
-                        </DockPanel>
-                    </TabItem.Content>
-                </TabItem>
+                                
             </TabControl>
         </Border>
     </Grid>
