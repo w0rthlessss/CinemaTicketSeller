@@ -15,49 +15,49 @@
             <UniformGrid x:Name="MenuGrid" Rows="10">
                 <Border x:Name="CashiersBorder" Background="#FF6D6D6D" Margin="0,0,0,10">
                     <DockPanel x:Name="CashiersPanel">
-                        <Image x:Name="CashierIcon" DockPanel.Dock="Left" HorizontalAlignment="Left" VerticalAlignment="Center" Source="/img/couchSingle.png"/>
+                        <Image x:Name="CashierIcon" DockPanel.Dock="Left" HorizontalAlignment="Left" VerticalAlignment="Center" Source="/img/elementIcon.png"/>
                         <Label x:Name="CashierTitle" Content="Кассиры" DockPanel.Dock="Right" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" FontSize="26"/>
                     </DockPanel>
                 </Border>
 
                 <Border x:Name="HallsBorder" Background="#FF6D6D6D" Margin="0,0,0,10">
                     <DockPanel x:Name="HallsPanel">
-                        <Image x:Name="HallIcon" DockPanel.Dock="Left" HorizontalAlignment="Left" VerticalAlignment="Center" Source="/img/couchSingle.png"/>
+                        <Image x:Name="HallIcon" DockPanel.Dock="Left" HorizontalAlignment="Left" VerticalAlignment="Center" Source="/img/elementIcon.png"/>
                         <Label x:Name="HallTitle" Content="Залы" DockPanel.Dock="Right" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" FontSize="26"/>
                     </DockPanel>
                 </Border>
 
                 <Border x:Name="MoviesBorder" Background="#FF6D6D6D" Margin="0,0,0,10">
                     <DockPanel x:Name="MoviesPanel">
-                        <Image x:Name="MoviesIcon" DockPanel.Dock="Left" HorizontalAlignment="Left" VerticalAlignment="Center" Source="/img/couchSingle.png"/>
+                        <Image x:Name="MoviesIcon" DockPanel.Dock="Left" HorizontalAlignment="Left" VerticalAlignment="Center" Source="/img/elementIcon.png"/>
                         <Label x:Name="MoviesTitle" Content="Фильмы" DockPanel.Dock="Right" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" FontSize="26"/>
                     </DockPanel>
                 </Border>
 
                 <Border x:Name="ScreeningsBorder" Background="#FF6D6D6D" Margin="0,0,0,10">
                     <DockPanel x:Name="ScreeningsPanel">
-                        <Image x:Name="ScreeningsIcon" DockPanel.Dock="Left" HorizontalAlignment="Left" VerticalAlignment="Center" Source="/img/couchSingle.png"/>
+                        <Image x:Name="ScreeningsIcon" DockPanel.Dock="Left" HorizontalAlignment="Left" VerticalAlignment="Center" Source="/img/elementIcon.png"/>
                         <Label x:Name="ScreeningsTitle" Content="Сеансы" DockPanel.Dock="Right" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" FontSize="26"/>
                     </DockPanel>
                 </Border>
 
                 <Border x:Name="SeatsBorder" Background="#FF6D6D6D" Margin="0,0,0,10">
                     <DockPanel x:Name="SeatsPanel">
-                        <Image x:Name="SeatsIcon" DockPanel.Dock="Left" HorizontalAlignment="Left" VerticalAlignment="Center" Source="/img/couchSingle.png"/>
+                        <Image x:Name="SeatsIcon" DockPanel.Dock="Left" HorizontalAlignment="Left" VerticalAlignment="Center" Source="/img/elementIcon.png"/>
                         <Label x:Name="SeatsTitle" Content="Места" DockPanel.Dock="Right" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" FontSize="26"/>
                     </DockPanel>
                 </Border>
 
                 <Border x:Name="TicketsBorder" Background="#FF6D6D6D" Margin="0,0,0,10">
                     <DockPanel x:Name="TicketsPanel">
-                        <Image x:Name="TicketsIcon" DockPanel.Dock="Left" HorizontalAlignment="Left" VerticalAlignment="Center" Source="/img/couchSingle.png"/>
+                        <Image x:Name="TicketsIcon" DockPanel.Dock="Left" HorizontalAlignment="Left" VerticalAlignment="Center" Source="/img/elementIcon.png"/>
                         <Label x:Name="TicketsTitle" Content="Билеты" DockPanel.Dock="Right" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" FontSize="26"/>
                     </DockPanel>
                 </Border>
 
                 <Border x:Name="ReciptsBorder" Background="#FF6D6D6D" Margin="0,0,0,10">
                     <DockPanel x:Name="ReciptsPanel">
-                        <Image x:Name="ReciptsIcon" DockPanel.Dock="Left" HorizontalAlignment="Left" VerticalAlignment="Center" Source="/img/couchSingle.png"/>
+                        <Image x:Name="ReciptsIcon" DockPanel.Dock="Left" HorizontalAlignment="Left" VerticalAlignment="Center" Source="/img/elementIcon.png"/>
                         <Label x:Name="ReciptsTitle" Content="Чеки" DockPanel.Dock="Right" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" FontSize="26"/>
                     </DockPanel>
                 </Border>

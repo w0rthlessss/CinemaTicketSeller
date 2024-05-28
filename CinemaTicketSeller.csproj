@@ -22,6 +22,7 @@
     <None Remove="img\couchSingle.png" />
     <None Remove="img\couchSingleChosen.png" />
     <None Remove="img\couchSingleOccupied.png" />
+    <None Remove="img\elementIcon.png" />
     <None Remove="img\infoIcon.png" />
     <None Remove="img\logo.png" />
     <None Remove="img\regSeat.png" />
@@ -51,6 +52,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="img\couchSingleOccupied.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\elementIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="img\infoIcon.png">
