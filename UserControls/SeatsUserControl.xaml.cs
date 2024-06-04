@@ -26,7 +26,6 @@ namespace CinemaTicketSeller.UserControls
         AdminConnection connection;
 
         ObservableCollection<Seat> databaseSeats = new ObservableCollection<Seat>();
-        bool containsThisID = false;
         List<Halls> halls = new List<Halls>();
 
         public SeatsUserControl(AdminConnection connection)

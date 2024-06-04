@@ -679,7 +679,11 @@ namespace CinemaTicketSeller
                         command.Parameters.AddWithValue("@newDate", updatedValues[i].Date.ToString("yyyy-MM-dd"));
                         command.Parameters.AddWithValue("@newTime", updatedValues[i].Time.ToString("HH:mm:ss"));
                         command.Parameters.AddWithValue("@newPriceAmpl", updatedValues[i].PriceAmplification);
-                        command.Parameters.AddWithValue("@newOccupiedSeats", JsonConvert.SerializeObject(updatedValues[i].OccupiedSeats));
+                        if (updatedValues[i].OccupiedSeats.Count != 0)
+                            command.Parameters.AddWithValue("@newOccupiedSeats", JsonConvert.SerializeObject(updatedValues[i].OccupiedSeats));
+                        else
+                            command.Parameters.AddWithValue("@newOccupiedSeats", null);
+                        //command.Parameters.AddWithValue("@newOccupiedSeats", JsonConvert.SerializeObject(updatedValues[i].OccupiedSeats));
                         command.Parameters.AddWithValue("@id", ids[i]);
 
                         command.ExecuteNonQuery();

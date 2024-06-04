@@ -111,6 +111,10 @@ namespace CinemaTicketSeller
         {
             Border button = (Border)sender;
             button.Background = (Brush)(new BrushConverter().ConvertFromString("#32C13B")!);
+            button.Background = (Brush)(new BrushConverter().ConvertFromString("#39D642")!);
+
+            if (selectedSeats.Count == 0) return;
+            
 
             MessageBoxResult reply = MessageBox.Show("Оплата прошла?", this.Name, MessageBoxButton.YesNo, MessageBoxImage.Question);
 
@@ -133,7 +137,7 @@ namespace CinemaTicketSeller
                 this.PlaceInformation.Children.Clear();
             }
 
-            button.Background = (Brush)(new BrushConverter().ConvertFromString("#39D642")!);
+            
         }
 
         //Попробовать сделать асинхронное подключение в этой фунции
@@ -207,8 +211,6 @@ namespace CinemaTicketSeller
             databaseSeats.Clear();
             databaseSeats = connection.GetSeatsForCurrnetHallAndSession(currentScreening);
 
-            /*foreach(Seat occupiedSeat in currentScreening.OccupiedSeats)
-                databaseSeats[occupiedSeat.SeatID -1 ].IsOccupied = true;            */
 
             databaseScreenings[currentScreeningIndex].Hall.Seats = databaseSeats;
 

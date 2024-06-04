@@ -9,9 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DBSave\**" />
     <Compile Remove="icons\**" />
+    <EmbeddedResource Remove="DBSave\**" />
     <EmbeddedResource Remove="icons\**" />
+    <None Remove="DBSave\**" />
     <None Remove="icons\**" />
+    <Page Remove="DBSave\**" />
     <Page Remove="icons\**" />
   </ItemGroup>
 
